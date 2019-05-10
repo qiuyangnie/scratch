@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CS6115 Report</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		article {
+			margin: auto;
+			margin-top: 50px;
+			margin-bottom: 150px;
+			width: 60%;
+			text-align: justify;
+		}
+		img {
+			display: block;
+			width: 80%;
+			margin-left: auto;
+  			margin-right: auto;
+		}
+		figcaption {
+			text-align: center;
+		}
+		a {
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<article>
+		<h1>Scratch usability and accessibility assessment</h1>
+
+		<p>Scratch is a visual programming language that makes it easy to create interactive stories, animations, games, music, and art and share these creations on the web <a href="#reference" title="Go to reference list">[1]</a>. There is an <a href="https://scratch.mit.edu/projects/editor/?tutorial=getStarted" title="Go to Scratch website" target="_blank">online Scratch programming website</a>, which allows implementing these creations. This report assesses the main and basic usability and accessibility of this website and proposes some user interface improvements with low-fidelity prototyping. The prototype is only suitable to demonstrate some proposed design solutions.</p>
+
+		<h2>Usability analysis</h2>
+
+		<p>The usability analysis is based on the Jocab's Nielsen's ten recommended heuristics evaluation.</p>
+
+		<h3>1.  Match between system and the real world</h3>
+
+		<p><q>The system should speak the user's language, with words, phrases, and concepts familiar to the user, rather than system-oriented terms. Following real-world conventions, making information appear in a natural and logical order <a href="#reference">[2]</a>.</q> The main user on the Scratch site is between the ages of eight and 16 (peaking at 12), though a sizeable group of adults participants as well <a href="#reference" title="Go to reference list">[3]</a>. Furthermore, the website can be an online learning platform which allows learning important mathematical and computational concepts, etc. Therefore, there are some operations or terms that could be system-oriented or technical for programming novices. </p>
+
+		<h3>2. User control and freedom & Help users recognize, diagnose, and recover from errors</h3>
+
+		<p><q>Users often choose system functions by mistake and will need a clearly marked 'emergency exit' to leave the unwanted state without having to go through an extended dialogue. Support undo and redo <a href="#reference" title="Go to reference list">[2]</a>.</q> In the review and test the website, when the user clicks the delete button of the Sprite1, the Sprite1 and its code will be easily deleted (<b>Figure 1</b>). If this is not deleted by the user on purpose, it could annoy the user because there is no undo operation. The code is deleted without the save.</p>
+
+		<img src="reportFigures/figure1.png" alt="Delete the Sprite1 operation in the original Scratch website">
+		<figcaption><b>Figure.1 </b>Delete the Sprite1 operation in the original Scratch website</figcaption>
+		<br>
+
+		<p>The improved design could implement an 'Undo' button when the user accidentally deletes the Sprite, which allows the user can go back the previous status without losing their code. In the new design prototype (<b>Figure 2</b>), the 'Undo' button only will be displayed when the user has deleted the sprite. This is in order to avoid confusion and potential errors because the 'Undo' button is only valid and responsible for sprite (code blocks) recovery when the user has dropped some code blocks into the centre editing panel and then has accidentally deleted the Sprite.</p>
+
+		<img src="reportFigures/undoButton.png" alt="The user has deleted the Sprite by mistake, the 'Undo' button is showed">
+		<figcaption><b>Figure.2 </b> The user has deleted the Sprite by mistake, the 'Undo' button is showed.</figcaption>
+		<br>
+
+		<h3>3. Error prevention</h3>
+
+		<p><q>Even better than a good error message is a careful design which prevents a problem from occurring in the first place. Either eliminate error-prone conditions or check for them and present users with a confirmation option before they commit to the action <a href="#reference" title="Go to reference list">[2]</a>.</q> This could be a similar problem when the user deletes the Sprite by mistake, the whole code blocks are also deleted. This problem could also be addressed by asking the user about confirmation on the operation he/she made. For example, there is a confirmation prompt when the user is leaving the whole page, which could attempt to avoid the problem such as unsaved file (<b>Figure 3</b>). Another good design on this website is that there are error preventions in some code block. For example, the user can only input the numerical values into the Motion code blocks (<b>Figure 4</b>). </p>
+
+		<img src="reportFigures/figure2.png" alt="The confirmation dialog box in the original Scratch website attempts to prevent potential problems.">
+		<figcaption><b>Figure.3 </b>The confirmation dialog box in the original Scratch website attempts to prevent potential problems.</figcaption>
+		<br>
+
+		<img src="reportFigures/figure4.png" alt="The Motion code blocks only can accept numerical value." style="width: 20%;">
+		<figcaption><b>Figure.4 </b>The Motion code blocks only can accept numerical value.</figcaption>
+		<br>
+
+		<p>The delete the Sprite can be a high-risk operation as mentioned before, the new design also implements the confirmation dialog to inform the user if the operation should be committed (<b>Figure 5</b>). However, due to the simple demonstrations using Window <code>confirm()</code> method, the text of the choices in the confirmation box might not be correct to correspond the question. For example, if the 'OK' is replaced to 'Yes' could be better to match the real world conversion.</p>
+
+		<img src="reportFigures/prototype1.png" alt="Confirmation dialog box in the new prototype attempts to prevent potential problems.">
+		<figcaption><b>Figure.5 </b>Confirmation dialog box in the new prototype attempts to prevent potential problems.</figcaption>
+		<br>
+
+		<h3>4. Consistency and standards</h3>
+		<p><q>Users should not have to wonder whether different words, situations, or actions mean the same thing [2].</q></p>
+
+		<h3>5. Recognition rather than recall</h3>
+		<p><q>Minimise the user's memory load by making objects, actions, and options visible <a href="#reference" title="Go to reference list">[2]</a>.</q> The general user interface of this website can be simple. In addition, all code blocks, navigation, are named by words. Some buttons are labelled by using the icon which might need to be learned by the user. However, there is accompanying information about these buttons, which is displayed when the user moves the mouse pointer onto these buttons, which can reduce the memory load of the user. In addition, the console (the sprite) is always displayed by the side of the coding panel. This can provide the live coding so that the user can edit the code blocks (e.g. drag-and-drop the code blocks) and check the result (e.g. animation of the sprite) in the console at the same time.</p>
+
+		<h3>6. Flexibility and efficiency of use</h3>
+		<p><q>Accelerators &#8209; unseen by the novice user &#8209; may often speed up the interface for the expert user such that the system can cater to both inexperienced and experienced users <a href="#reference" title="Go to reference list">[2]</a>.</q> When the website is opened, there is always an introduction tutorial section that is displayed on the page (<b>Figure 6</b>). This could consider the novice user, the expert user, however, might not need this basic tutorial every time when he/she begins the project. Therefore, it could be beneficial to cater to the experienced user by removing the introduction tutorials for them. </p>
+
+		<img src="reportFigures/figure3.png" alt="The introduction tutorial of the Scratch in the original Scratch website is launched every time when the user opens the website.">
+		<figcaption><b>Figure.6 </b>The introduction tutorial of the Scratch in the original Scratch website is launched every time when the user opens the website.</figcaption>
+		<br>		
+
+		<p>The new prototype design attempts to remove the automatic tutorial launched when the user opens the website. A 'Getting started' button is implemented so that the beginner user can click that button to get relevant guides, the experienced user is not bothered by this tutorial so that the efficiency could be improved (<b>Figure 7</b>). Furthermore, the tutorial is displayed until it is closed by the user. The user can drag the code blocks while reading the introduction tutorial. This could be helpful to reduce the memory load.</p>
+
+		<img src="reportFigures/gettingStarted.png" alt="Only the 'Getting started' button is clicked, the tutorial is launched rather than launched automatically.">
+		<figcaption><b>Figure.7 </b>Only if the 'Getting started' button is clicked, the tutorial is launched rather than it is launched automatically when the page is loaded.</figcaption>
+		<br>
+
+		<h3>7. Visibility of system status</h3>
+		<p><q>The system should always keep users informed about what is going on, through appropriate feedback within a reasonable time <a href="#reference" title="Go to reference list">[2]</a>.</q> When the user drags a code block, the destination of where to put the code block might be confusing because there is a lack of cues which can hint the user which part of the page should be dropped the code he/she is dragging especially for the novice user. Therefore, a potential improvement is to implement the border highlights of the destination when the user is doing the drag-and-drop operation, which could give the user the instant feedback and hint to help the completion of the goal (<b>Figure 8</b>).</p>
+
+		<img src="reportFigures/borderHint.png" alt="The border highlights could guide the user where to drop the dragged code block.">
+		<figcaption><b>Figure.8 </b>The border highlights could guide the user where to drop the dragged code block.</figcaption>
+		<br>		
+
+		<h3>8. Aesthetic and minimalist design</h3>
+		<p><q>Interfaces need to be cleared of unnecessary elements and content that do not support the page goals and tasks <a href="#reference" title="Go to reference list">[4]</a>.</q> The interface of the website can be concise because most of the information presented can be relevant to the creative activities of the user.</p>
+
+		<h3>9. Help and documentation</h3>
+		<p><q>Even though it is better if the system can be used without documentation, it may be necessary to provide help and documentation. Any such information should be easy to search, focused on the user's task, list concrete steps to be carried out, and not be too large <a href="#reference" title="Go to reference list">[2]</a>.</q> There is a tutorial button on the menu bar of the Scratch website, which is can be useful for novice users to get some support and for experienced users to check the advanced functionalities. </p>
+
+		<h2>Accessibility analysis</h2>
+		<p>The accessibility of the Scratch website is tested by using an online accessibility checker, the <a href="http://wave.webaim.org." title="Go to WebAIM Wave tool" target="_blank">WebAIM Wave tool</a> for assessing basic potential accessibility issues. According to the results of the online test, there are three significant accessibility issues (errors) are detected. First, there is not a title on the original website. "Without a proper title, many users (especially those using screen readers or other assistive technology) may have difficulty orienting themselves to the page <a href="#reference" title="Go to reference list">[5]</a>." A title tag is added to the new prototype HTML file with a concise name of the page. Second, there is a button which is empty or has no value in the Scratch page. This may also cause some difficulty for screen readers. Third, the form label is also lack of descriptive text. The new design prototype attempts to add descriptive text into HTML tags.</p>
+
+		<h3 id="reference">Reference</h3>
+		<ul>
+			<li>[1] Scratch. (2019). Retrieved from <a href="http://www.scratch.ie" target="_blank">http://www.scratch.ie</a></li>
+			<li>[2] 10 Heuristics for User Interface Design: Article by Jakob Nielsen. (2019). Retrieved from <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank">https://www.nngroup.com/articles/ten-usability-heuristics/</a></li>
+			<li>[3] Resnick, M., Silverman, B., Kafai, Y., Maloney, J., Monroy-Hernández, A., & Rusk, N. et al. (2009). Scratch. Communications Of The ACM, 52(11), 60. <a href="10.1145/1592761.1592779" target="_blank">doi: 10.1145/1592761.1592779</a></li>
+			<li>[4] 10 Usability Heuristics with Examples. (2019). Retrieved from <a href="https://blog.prototypr.io/10-usability-heuristics-with-examples-4a81ada920c" target="_blank">https://blog.prototypr.io/10-usability-heuristics-with-examples-4a81ada920c</a></li>
+			<li>[5] Wave web accessibility evaluation tool: testing the Scratch website. (2019). Retrieved from <a href="http://wave.webaim.org/report#/https://scratch.mit.edu/projects/editor/?tutorial=getStarted" target="_blank">http://wave.webaim.org/report#/https://scratch.mit.edu/projects/editor/?tutorial=getStarted</a></li>
+		</ul>
+
+
+
+
+
+	</article>
+	
+
+
+
+
+</body>
+</html>
